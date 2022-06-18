@@ -17,7 +17,7 @@ const (
 )
 
 var (
-	addr = flag.String("addr", "localhost:5002", "the address to connect to")
+	addr = flag.String("addr", "localhost:5000", "the address to connect to")
 	name = flag.String("name", defaultName, "Name to greet")
 )
 
