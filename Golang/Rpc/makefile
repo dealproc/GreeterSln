@@ -1,12 +1,11 @@
 BINARY_NAME=rpc
-DIST_FOLDER="../../dist/rpc"
+DIST_FOLDER="../../dist/go"
 
 build:
 	export GOBIN=${HOME}/go/bin
 	export GOMODCACHE=${GOPATH}/pkg/mod
 
 	# go get google.golang.org/grpc
-	# protoc --proto_path=../../proto --go_out=paths=source_relative --go_opt=paths=source_relative --go-grpc_out=paths=source_relative  ../../proto/*.proto
 	protoc --proto_path=../../proto --go-grpc_out=. --go_out=. greeter.proto
 	GOARCH=amd64 GOOS=darwin go build -o ${DIST_FOLDER}/${BINARY_NAME}-darwin main.go
 	GOARCH=amd64 GOOS=linux go build -o  ${DIST_FOLDER}/${BINARY_NAME}-linux main.go
